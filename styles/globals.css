@@ -12,6 +12,20 @@ body {
   margin: 0;
 }
 
+.page {
+  min-inline-size: 375px;
+  max-inline-size: 1440px;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+}
+
+p {
+  margin: 0;
+}
+
 h1,
 h2,
 h3,
