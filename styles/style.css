@@ -14,7 +14,8 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
-  min-inline-size: 100vw;
+  min-inline-size: 320px;
+  margin-inline: auto;
   font-family: var(--main-font), 'sans-serif';
   font-variation-settings: "wght" var(--description-font-weight);
   background-image: var(--page-background-gradient);
@@ -81,6 +82,11 @@
 
 .image-wrapper {
   position: relative;
+  object-fit: cover;
+}
+
+.image-wrapper img {
+  block-size: clamp(371px, 100vw, 696px);
 }
 
 
@@ -356,7 +362,7 @@ dialog::backdrop {
 @media (width <= 375px) {
 
   .image-wrapper img {
-    block-size: 371px;
+    max-block-size: 371px;
   }
 
   .card-description {

@@ -11,10 +11,10 @@
 */
 @keyframes heart {
   from {
-    scale: 1;
+    transform: scale(1);
   }
-  to{
-    scale: 1.25;
+  to {
+    transform: scale(1.25);
   }
 }
 
@@ -22,7 +22,7 @@
   from {
     opacity: 0;
   }
-  to{
-    opacity: 100;
+  to {
+    opacity: 1;
   }
 }
