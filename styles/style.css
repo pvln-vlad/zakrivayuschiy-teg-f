@@ -16,14 +16,11 @@
   justify-items: center;
   min-inline-size: 320px;
   margin-inline: auto;
-  font-family: var(--main-font), 'sans-serif';
-  font-variation-settings: "wght" var(--description-font-weight);
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' var(--description-font-weight);
   background-image: var(--page-background-gradient);
   background-size: cover;
   background-attachment: fixed;
-}
-
-.page__wrapper {
   inline-size: var(--page-content-width);
 }
 
@@ -32,24 +29,27 @@
   grid-template-columns: 1fr;
   grid-template-rows: 100px clamp(327px, 50vw, 368px) 100px;
   justify-items: center;
+  inline-size: var(--page-content-width);
 }
 
 .header__content {
   display: flex;
   flex-direction: column;
-  inline-size: var(--page-content-width);
   block-size: clamp(327px, 50vw, 368px);
   grid-row: 2;
   justify-content: center;
   align-items: center;
   background-color: var(--main-background-color);
-  font-family: var(--accent-font), 'sans-serif';
+  font-family: var(--accent-font), sans-serif;
   border: solid 2px var(--main-text-color);
+  inline-size: var(--page-content-width);
 }
 
 .header__logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   margin-bottom: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .header__title {
@@ -82,39 +82,42 @@
 
 .image-wrapper {
   position: relative;
-  object-fit: cover;
+  margin: 0;
 }
 
 .image-wrapper img {
   block-size: clamp(371px, 100vw, 696px);
+  object-fit: cover;
+  border-top: solid 2px var(--main-text-color);
+  border-bottom: solid 2px var(--main-text-color);
 }
 
 
-.first-sprint__start {
+.filter-brightness {
   filter: brightness(200%);
 }
 
-.first-sprint__end {
+.filter-contrast {
   filter: contrast(400%);
 }
 
-.second-sprint__start {
+.filter-blur {
   filter: blur(0.3rem);
 }
 
-.second-sprint__end {
+.filter-opacity {
   filter: opacity(0.7);
 }
 
-.third-sprint__start {
+.filter-grayscale {
   filter: grayscale(100%);
 }
 
-.third-sprint__end {
+.filter-saturate {
   filter: saturate(158%);
 }
 
-.fourth-sprint__start {
+.filter-sepia-hue-rotate {
   filter: sepia(80%) hue-rotate(-90deg);
 }
 
@@ -122,35 +125,41 @@
   position: absolute;
   top: 25px;
   right: 25px;
-  font-family: var(--accent-font), 'sans-serif';
+  font-family: var(--accent-font), sans-serif;
   font-size: var(--accent-text-size);
   opacity: 0.5;
   -webkit-text-stroke: 1px var(--text-stroke-color);
   color: var(--main-text-color);
   mix-blend-mode: hard-light;
+  text-shadow: -1px 0 var(--text-stroke-color),
+  1px 0 var(--text-stroke-color),
+  0 -1px var(--text-stroke-color),
+  0 1px var(--text-stroke-color);
+  text-transform: uppercase;
+  z-index: 1;
 }
 
 .card-title {
-  font-family: var(--main-font), 'sans-serif';
+  font-family: var(--main-font), sans-serif;
   font-size: var(--main-text-size);
   padding: 4px 10px;
-  font-variation-settings: "wght" var(--title-font-weight);
+  font-variation-settings: 'wght' var(--title-font-weight);
   line-height: 22px;
 }
 
 .card-description {
-  display: grid;
-  font-family: var(--main-font), 'sans-serif';
+  /*display: grid;*/
+  font-family: var(--main-font), sans-serif;
   font-size: var(--main-text-size);
   line-height: 21px;
-  padding: 25px;
+  padding: 27px 25px;
 }
 
 .card-buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   margin-block-start: 25px;
   inline-size: 100%;
 }
@@ -159,8 +168,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  inline-size: 38px;
-  block-size: 38px;
   padding: 0;
   background-color: transparent;
   border: 2px solid transparent;
@@ -198,7 +205,7 @@
 }
 
 .button__text {
-  font-family: var(--accent-font), 'sans-serif';
+  font-family: var(--accent-font), sans-serif;
   font-size: var(--accent-text-size);
 }
 
@@ -220,7 +227,7 @@ dialog::backdrop {
 }
 
 .dialog-floppy {
-  display: none
+  display: none;
 }
 
 .dialog-floppy[open] {
@@ -349,16 +356,6 @@ dialog::backdrop {
   }
 }
 
-@supports not (-webkit-text-stroke: 1px var(--text-stroke-color)) {
-  .image-label {
-    text-shadow:
-      -1px 0 var(--text-stroke-color),
-      1px 0 var(--text-stroke-color),
-      0 -1px var(--text-stroke-color),
-      0 1px var(--text-stroke-color);
-  }
-}
-
 @media (width <= 375px) {
 
   .image-wrapper img {
@@ -366,7 +363,7 @@ dialog::backdrop {
   }
 
   .card-description {
-    line-height: 21.4px;
+    line-height: 21px;
   }
 
   .card__save-button {
